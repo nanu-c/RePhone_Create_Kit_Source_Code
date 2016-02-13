@@ -46,3 +46,4 @@ Temporary Items
 *.o
 *.res
 RePhone_Create_Source_Code/ARM/
+*.o
