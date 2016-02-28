@@ -1,7 +1,8 @@
-Scriven42's Modified RePhone Kit Create Source Code
+## Scriven42's Modified RePhone Kit Create Source Code
 
--Added ability to type and send messages, not just send pre-written canned messages.
+-Added a keyboard to type new messages, not just send pre-written canned messages.
 
+---
 
 If you want to install without compiling yourself, please try these steps:
 
