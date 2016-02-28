@@ -138,9 +138,9 @@ void keyboard_window_show(char *buf2, int len2, int target)
 {
     g_button_target = target;
 
-    g_keyboard_string = buf2;
+    g_keyboard_string			= buf2;
     g_keyboard_string_max_length= len2;
-    g_keyboard_string_length = 0;
+    // g_keyboard_string_length	= 0;
     g_keyboard_src_window_ptr	= UG_GetActiveWindow();
     //UG_ButtonSetText(&g_keyboard_window, keyboard_window, "");
     UG_WindowShow(&g_keyboard_window);
