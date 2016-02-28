@@ -52,6 +52,7 @@ extern void call_window_create();
 extern void sms_window_create();
 extern void ifttt_window_create();
 extern void input_window_create();
+extern void keyboard_window_create();
 extern void led_matrix_window_create();
 extern void input_window_show(int id);
 extern void ws2812_window_create();
@@ -798,6 +799,7 @@ void windows_create(void)
     settings_window_create();
 
     input_window_create();
+    keyboard_window_create();
 
     ws2812_window_create();
     led_matrix_window_create();

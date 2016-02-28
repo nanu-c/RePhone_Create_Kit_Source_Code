@@ -22,9 +22,11 @@ char g_sms_new_message_info[16] = {0,};
 char *g_sms_action_number = NULL;
 char *g_sms_action_content = NULL;
 extern UG_WINDOW g_home_window;
+char g_expr_keyboard_string[32] = { 0, };
 
 extern void contact_list_window_show();
 extern void input_window_show(char *buf, int len, int id);
+extern void keyboard_window_show(char *buf2, int len2, int target);
 extern void screen_resume(void);
 
 void sms_new_message_callback(char *number, char *content)
@@ -232,21 +234,30 @@ void sms_new_window_update()
 {
     int i;
     int number = sms_get_max_item_num();
+    char *icon = NULL;
+    /* orig
     for (i = 0; i < 4; i++) {
+    */
+	for (i = 0; i < 3; i++) {
         char *message = NULL;
-        char *icon = NULL;
+        icon	= NULL;
         int index = i + g_sms_template_first_visible;
         if (index < number) {
             message = sms_get_item(index);
         }
-        UG_ButtonSetText(&g_sms_new_window, 10 + i, message);
+        UG_ButtonSetText(&g_sms_new_window, 11 + i, message);
 
         if (index == g_sms_select_message) {
             icon = ":";
         }
-        UG_ButtonSetText(&g_sms_new_window, 6 + i, icon);
+        UG_ButtonSetText(&g_sms_new_window, 7 + i, icon);
 
     }
+	icon	= NULL;
+	if (g_sms_select_message == 10) {
+		icon	= ":";
+	}
+    UG_ButtonSetText(&g_sms_new_window, 6, icon);
 }
 
 void sms_new_window_callback(UG_MESSAGE *msg)
@@ -291,20 +302,28 @@ void sms_new_window_callback(UG_MESSAGE *msg)
                     contact_list_window_show();
                     break;
                 case 6:
+                	g_sms_select_message	= 10;
+                	sms_new_window_update();
+                	break;
                 case 7:
                 case 8:
                 case 9:
-                    select = msg->sub_id - 6 + g_sms_template_first_visible;
+                    select = msg->sub_id - 7 + g_sms_template_first_visible;
                     if (select < number) {
                         g_sms_select_message = select;
                         sms_new_window_update();
                     }
                     break;
                 case 10:
+                	keyboard_window_show(g_expr_keyboard_string, sizeof(g_expr_keyboard_string), 10);
+                	break;
                 case 11:
                 case 12:
                 case 13:
+                	/* orig
                     select = msg->sub_id - 10 + g_sms_template_first_visible;
+                    */
+                    select = msg->sub_id - 11 + g_sms_template_first_visible;
                     if (select < number) {
                         g_sms_select_message = select;
                         sms_new_window_update();
@@ -372,6 +391,7 @@ void sms_new_window_create(void)
         UG_ButtonSetAlignment(&g_sms_new_window, index, ALIGN_CENTER_LEFT);
         UG_ButtonSetHSpace(&g_sms_new_window, index, 8);
     }
+    UG_ButtonSetText(&g_sms_new_window, 10, "<Type Msg>");
 }
 
 void sms_new_window_show()
