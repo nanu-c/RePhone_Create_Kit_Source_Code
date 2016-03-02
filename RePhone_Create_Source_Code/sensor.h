@@ -11,7 +11,8 @@
 #define U32_TYPE    0
 #define I32_TYPE    1
 #define F32_TYPE    2
-#define P_TYPE      4 // or > 4
+#define P_TYPE      4
+// or > 4
 
 enum sensor_id_t {
   ACC_X_ID = 0,

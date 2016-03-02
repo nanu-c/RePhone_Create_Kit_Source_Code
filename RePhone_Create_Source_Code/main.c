@@ -41,7 +41,6 @@
 VM_TIMER_ID_PRECISE sys_timer_id = 0;
 static VMUINT8* g_font_pool;
 VMUINT8 sys_record_time = 0;
-unsigned char sys_blink = 0;
 
 
 extern void gui_setup(void);
@@ -160,10 +159,6 @@ void sys_timer_callback(VM_TIMER_ID_PRECISE sys_timer_id, void* user_data)
 			file_write("system_record.txt", str, 0);
 		}
     }
-
-    if(sys_blink)digitalWrite(GLED_GPIO, 1);
-    else digitalWrite(GLED_GPIO, 0);
-    sys_blink = !sys_blink;
 }
 
 VMINT handle_keypad_event(VM_KEYPAD_EVENT event, VMINT code){
