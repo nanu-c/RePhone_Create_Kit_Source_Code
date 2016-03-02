@@ -9,7 +9,7 @@
 #include "ugui.h"
 #include "vmpwr.h"
 
-#define SCREEN_OFF_TIME    600
+#define SCREEN_OFF_TIME    50
 
 UG_WINDOW g_settings_window;
 uint8_t g_settings_brightness = 3;
