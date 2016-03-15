@@ -44,6 +44,7 @@ extern UG_WINDOW g_ifttt_list_window;
 
 extern UG_WINDOW g_led_matrix_window;
 
+extern char* g_version;
 extern void lcd_backlight_level(VMUINT32 ulValue);
 extern char *itoa(int num, char* str, int radix);
 
