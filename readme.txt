@@ -1,7 +1,17 @@
 ## Scriven42's Modified RePhone Kit Create Source Code
 
--Added a keyboard to type new messages, not just send pre-written canned messages.
--Changed the "no sim" background to C_PURPLE as a marker.
+-Added a keyboard to type new messages, not just send pre-written messages.
+
+Keyboard Layout:
+  Page 1         Page 2         Page 3         Page 4         Page 5
+a  o  e  u     f  g  c  r     v  7  8  9     -  _  =  +     <  >  (  )
+i  d  h  t     l  q  j  k     z  4  5  6     #  $  %  @     [  ]  \  |
+n  s  p  y     x  b  m  w     !  1  2  3     &  *  :  ;     {  }  ^  `
+. sp  ,  >     <  '  "  >     < sp  0  >     <  /  ?  >     <  ~ sp sp
+
+Notes:
+	sp = space
+	<, > in purple, on the lower right and left corners, switches between pages.
 
 ---
 
