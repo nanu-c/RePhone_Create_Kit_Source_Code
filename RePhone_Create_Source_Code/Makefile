@@ -14,8 +14,8 @@ SIZE=$(TOOLCHAIN)/bin/arm-none-eabi-size
 
 
 OBJECTS = action.o actuator.o address_book.o battery.o call_ui.o cjson.o condition.o contact_ui.o font_icon24.o font_icon48.o \
-	font_ugui.o gui_glue.o ifttt_book.o ifttt.o ifttt_ui.o input_window.o laudio.o lcd_sitronix_st7789s.o ldlceint.o ldlcgpio.o \
-	ldlci2cV2.o led_matrix_window.o lgsmsms.o lledmatrix.o lmotor.o lrgbws2812.o lstorage.o lvoicecall.o main.o music.o \
+	font_ugui.o gui_glue.o ifttt_book.o ifttt.o ifttt_ui.o input_window.o keyboard_window.o laudio.o lcd_sitronix_st7789s.o ldlceint.o \
+	ldlcgpio.o ldlci2cV2.o led_matrix_window.o lgsmsms.o lledmatrix.o lmotor.o lrgbws2812.o lstorage.o lvoicecall.o main.o music.o \
 	sensor.o settings.o sms_book.o sms_ui.o tp_goodix_gt9xx.o tp_i2c.o ugui.o util.o vibrator_window.o windows.o ws2812_window.o
 
 PROJECT = main
