@@ -1,7 +1,5 @@
 # Makefile setup to mimic file source/destination locations for the Windows Eclipse IDE
-
-# Set your toolchain path
-TOOLCHAIN=/usr
+# Also not specifying toolchain path, relying on the PATH variable, to allow local ccache/distcc
 
 # Set your LinkIt sdk path
 LINKIT_ASSIST_SDK_PATH=/home/scriven/eclipse/cpp-mars/eclipse
@@ -10,14 +8,14 @@ LINKIT_ASSIST_SDK_PATH=/home/scriven/eclipse/cpp-mars/eclipse
 # https://github.com/mandl/LinkIt_Assist_2502
 LINKIT_TOOLS_PATH=/home/scriven/eclipse/LinkIt_Assist_2502
 
-CC=$(TOOLCHAIN)/bin/arm-none-eabi-gcc
-AS=$(TOOLCHAIN)/bin/arm-none-eabi-as
-LD=$(TOOLCHAIN)/bin/arm-none-eabi-gcc
-OBJCOPY=$(TOOLCHAIN)/bin/arm-none-eabi-objcopy
-OBJDUMP=$(TOOLCHAIN)/bin/arm-none-eabi-objdump
-SIZE=$(TOOLCHAIN)/bin/arm-none-eabi-size
-OBJDIR=./ARM
+CC=arm-none-eabi-gcc
+AS=arm-none-eabi-as
+LD=arm-none-eabi-gcc
+OBJCOPY=arm-none-eabi-objcopy
+OBJDUMP=arm-none-eabi-objdump
+SIZE=arm-none-eabi-size
 
+OBJDIR=./ARM
 OBJECTS = $(addprefix $(OBJDIR)/, $(patsubst %.c, %.o, $(wildcard *.c)))
 OBJECTS += $(OBJDIR)/gccmain.o
 
@@ -87,3 +85,4 @@ flash: $(PROJECT).vxp
 
 $(OBJDIR):
 	mkdir $(OBJDIR)
+
