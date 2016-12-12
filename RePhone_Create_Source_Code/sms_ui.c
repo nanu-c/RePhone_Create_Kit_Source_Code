@@ -285,14 +285,22 @@ void sms_new_window_callback(UG_MESSAGE *msg)
                 case 3: // send
                     if (g_sms_new_window_prev == &g_sms_inbox_window) {
                         gsm_sms_begin(UG_ButtonGetText(&g_sms_new_window, 5));
-                        gsm_sms_send(sms_get_item(g_sms_select_message));
+                        if (g_sms_select_message == 10) {
+                        	gsm_sms_send(UG_ButtonGetText(&g_sms_new_window, 10));
+                        } else {
+                        	gsm_sms_send(sms_get_item(g_sms_select_message));
+                        }
 
                         UG_TextboxSetText(&g_sms_sending_window, 1, NULL);
 //                        UG_ButtonHide(&g_sms_sending_window, 0);
                         UG_WindowShow(&g_sms_sending_window);
                     } else {
                         strcpy(g_sms_action_number, UG_ButtonGetText(&g_sms_new_window, 5));
-                        strcpy(g_sms_action_content, sms_get_item(g_sms_select_message));
+                        if (g_sms_select_message == 10) {
+                        	strcpy(g_sms_action_content, UG_ButtonGetText(&g_sms_new_window, 10));
+                        } else {
+                            strcpy(g_sms_action_content, sms_get_item(g_sms_select_message));
+                        }
 
                         UG_WindowShow(g_sms_new_window_prev);
                     }

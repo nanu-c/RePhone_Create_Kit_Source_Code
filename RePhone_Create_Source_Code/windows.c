@@ -44,6 +44,7 @@ extern UG_WINDOW g_ifttt_list_window;
 
 extern UG_WINDOW g_led_matrix_window;
 
+extern char* g_version;
 extern void lcd_backlight_level(VMUINT32 ulValue);
 extern char *itoa(int num, char* str, int radix);
 
@@ -195,7 +196,7 @@ static void home_window_create(void)
     UG_ButtonSetFont(&g_home_window, index, &FONT_SIZE20);
     UG_ButtonSetStyle(&g_home_window, index,
             BTN_STYLE_2D | BTN_STYLE_NO_BORDERS);
-    UG_ButtonSetBackColor(&g_home_window, index, C_PURPLE);
+    UG_ButtonSetBackColor(&g_home_window, index, 0);
 
     if (!vm_gsm_sim_has_card()) {
         UG_ButtonSetText(&g_home_window, index, "no sim");
